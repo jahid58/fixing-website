@@ -48,7 +48,7 @@ const getImages = (query) => {
   toggleSpinner()
   imagesArea.style.display = 'none';
   errMsg.style.display = 'none'
-  fetch(`https://pixabay.com/api/?ke=${KEY}&q=${query}&image_type=photo&pretty=true`)
+  fetch(`https://pixabay.com/api/?key=${KEY}&q=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
     .then(data => showImages(data.hits))
     .catch(err => {
