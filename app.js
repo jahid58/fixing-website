@@ -54,7 +54,6 @@ const getImages = (query) => {
     .catch(err => {
       toggleSpinner();
       displayingError(`Something went wrong`)})
-    
 }
 
 let slideIndex = 0;
@@ -65,10 +64,14 @@ const selectItem = (event, img) => {
   if (item === -1) {
     sliders.push(img);
   }
-  if(element.classList[2]!=='added'){
-    sliders.pop(event.target)}
+  // Deselect by double click
   
+  if(element.classList.contains('added') === false){
+    let index = sliders.indexOf(event.target.src);
+    sliders.splice(index,1);
+  }
 }
+
 var timer
 const createSlider = () => {
   // check slider image length
